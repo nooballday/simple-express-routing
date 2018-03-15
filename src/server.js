@@ -2,10 +2,27 @@
 
 const express = require('express');
 const app = express();
+const jwt = require('express-jwt');
 
 const routes = require('./routes');
 
 const port = 8876;
+
+const _authConfig = {
+    secret: 'somesecrets' //define the jwt config here
+}
+
+app.use(jwt(_authConfig).unless({
+    path : [] //add your desired path to exclude it from auth
+}))
+
+app.use((err, req, res, next) => {
+    if (err.name === 'UnauthorizedError') {
+        res.status(401).send({
+            "message" : "Missing Authorization"
+        });
+    }
+})
 
 app.use(routes);
 
