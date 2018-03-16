@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const jwt = require('express-jwt');
 
@@ -14,6 +15,12 @@ const _authConfig = {
 
 app.use(jwt(_authConfig).unless({
     path : [] //add your desired path to exclude it from auth
+}))
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+    extended: true
 }))
 
 app.use((err, req, res, next) => {

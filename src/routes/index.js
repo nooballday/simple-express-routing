@@ -2,6 +2,6 @@ const routes = require('express').Router();
 
 const dummy = require('./dummy');
 
-routes.get('/', dummy);
+routes.post('/', dummy);
 
 module.exports = routes;

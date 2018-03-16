@@ -1,6 +1,6 @@
 const dummy = (req, res) => {
     res.send({
-        "hello":"world!"
+        "hello": req.body.name
     })
 }
 
