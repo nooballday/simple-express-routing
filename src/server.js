@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').config(); //load enviroment variable
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -10,7 +12,7 @@ const routes = require('./routes');
 const port = 8876;
 
 const _authConfig = {
-    secret: 'somesecrets' //define the jwt config here
+    secret: process.env.SECRETKEY //define the jwt config here
 }
 
 app.use(jwt(_authConfig).unless({
