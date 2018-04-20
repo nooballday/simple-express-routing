@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const jwt = require('express-jwt');
+const formdataParser = require('multer')().fields([]) // allow form data and multipart to go through API
 
 const routes = require('./routes');
 
@@ -19,8 +20,8 @@ app.use(jwt(_authConfig).unless({
     path : [] //add your desired path to exclude it from auth
 }))
 
-app.use(bodyParser.json());
-
+app.use(bodyParser.json())
+app.use(formdataParser) //use as middleware in service 
 app.use(bodyParser.urlencoded({
     extended: true
 }))
