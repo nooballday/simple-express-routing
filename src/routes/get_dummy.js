@@ -16,6 +16,8 @@ const get_dummy = (req, res) => {
 
      /**
       * all the query should be done asynchronously
+      * 
+      * NOTE: if you are using client connection, make sure you close the connection before exit code
       */
 
     (async () =>{
