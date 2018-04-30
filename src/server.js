@@ -10,7 +10,9 @@ const formdataParser = require('multer')().fields([]) // allow form data and mul
 
 const routes = require('./routes');
 
-const port = 8876;
+const logInfo = require('./helper/logger').infolog
+
+const port = process.env.SERVERPORT;
 
 const _authConfig = {
     secret: process.env.SECRETKEY //define the jwt config here
@@ -39,6 +41,7 @@ app.use(routes);
 app.listen(
     port,
     ()=> {
+        logInfo.info("Server Running At "+ new Date())
         console.log("App Running at Port : "+ port);
     }
 )

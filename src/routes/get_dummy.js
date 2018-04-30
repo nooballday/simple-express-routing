@@ -1,5 +1,6 @@
 const model = require('../model/login')
 const logErrorMessage = "Something wrong with get_dummy request"
+const logError = require('../helper/logger').errorlog
 
 const get_dummy = (req, res) => {
 

@@ -5,7 +5,7 @@ const pool = pg.Pool({
     host : process.env.DBHOST,
     database : process.env.DBNAME,
     password : process.env.DBPASS,
-    port : 5432
+    port : process.env.DBPORT
 });
 
 module.exports = pool;

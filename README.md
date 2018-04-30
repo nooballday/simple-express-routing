@@ -11,3 +11,15 @@ this skeleton icludes these dependencies
 "uuid"
 "winston"
 "winston-daily-rotate-file"
+"chai"
+"mocha"
+
+How to use this skeleton
+
+***javascript
+
+npm install
+
+npm start 
+
+***
